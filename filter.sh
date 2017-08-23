@@ -18,16 +18,6 @@ for arg; do
 	i=$(($i+1))
 done;
 
-i=0
-for i in $(seq 1024)
-do
-	TMP_FILE=./compare_tmp$i.txt
-
-	if [ ! -f $TMP_FILE ]; then
-	break;
-	fi
-done;
-
 cmd="egrep $1 $pat_str"
 eval $cmd > $TMP_FILE
 meld $1 $TMP_FILE 
